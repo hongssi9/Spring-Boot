@@ -1,10 +1,14 @@
 package com.newlecture.web.controller.admin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,23 +19,81 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.newlecture.web.entity.Notice;
 
 @Controller("adminNoticeController")
-@RequestMapping("/admin/noticet/")
+@RequestMapping("/admin/notice/")
 public class NoticeController {	
 	@RequestMapping("list")
 	//@ResponseBody //리턴값을 사용자한테 보여주고 싶을때 그냥 반환만 받을 수 있게
-	public String list() {	
-		//return "admin notice list";
+	public String list(Model model) {	
+		
+		List<Notice> list = new ArrayList<>();
+		Notice notice = null;
+		
+		notice = new Notice();
+		notice.setId(1);
+		notice.setTitle("클릭해주세요");
+		notice.setWriterId("newlec");
+		list.add(notice);
+		
+		notice = new Notice();
+		notice.setId(2);
+		notice.setTitle("클릭해주세요");
+		notice.setWriterId("newlec");
+		list.add(notice);
+		
+		model.addAttribute("listt",list);
+		model.addAttribute("title", "test hahaha");
+		model.addAttribute("data", "");
+		
+		return "admin.notice.list";
 		
 		
-		return "admin.notice.list"; //tiles에있는 <definition name= "admin.notice.list" 를 가져온다.
+		//-------------옜날방법-------------------------
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("admin.notice.list");
+//		mv.addObject("list",list);
+//		
+//		return mv;
+		
+		
+		
+//		return "admin.notice.list"; //tiles에있는 <definition name= "admin.notice.list" 를 가져온다.
 //		return "/WEB-INF/view/admin/notice/list.jsp";
 	}
 	
+	@RequestMapping("detail") //tiles와 연결하는 기본적인 양식,틀
+	public String detail(Model model) {	
+		
+		Notice notice = new Notice();
+		notice.setId(1);
+		notice.setTitle("클릭해주세요");
+		notice.setWriterId("newlec");
+		
+		model.addAttribute("notice", notice);
+		model.addAttribute("title", notice.getTitle());
+		
+		return "admin.notice.list";	
+		
+	}
+	
+	@GetMapping("reg")
+	public ModelAndView reg() {	
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin.notice.reg");
+		
+		return mv;	
+		
+	}
+	
+	
 	//@RequestMapping(value = "reg", method = RequestMethod.GET) 예전방법
-	@GetMapping("reg/{uid}/{id}")
-	public String reg(
+	@GetMapping("regs/{uid}/{id}")
+	public String regs(
 			@RequestParam(name = "f",defaultValue = "default" ) String field,
 			@RequestParam(defaultValue = "0") Integer x, //자동으로 널값이면 "0"을 쓴다.
 			@RequestParam(defaultValue = "0") Integer y, /* , HttpServletRequest request */

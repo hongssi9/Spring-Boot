@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +10,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <%-- <c:set var="title" value="${empty title?}"></c:set> --%>
+    <%-- <title>${title}</title> <!-- title이름과.... --> --%>
     <link href="../../css/style.css" type="text/css" rel="stylesheet">
-    <script src="list.js"></script>
+    
+    <c:set var="js"><tiles:getAsString name="js"/></c:set>   <!-- js이름을...페이지마다...-->
+    <script src="${js}"></script> 
+    
 </head>
 
 <body>

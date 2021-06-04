@@ -63,7 +63,7 @@
 								</thead>
 								<tbody>
 										<!-- 꺼내온 list하나를 키값인 n에다 넣어준다. -->
-								<c:forEach var="n" items="${list}" varStatus="st">
+								<c:forEach var="n" items="${listt}" varStatus="st">
 									<tr>
 										<td class="w-1">${n.id}</td> <!-- 검색했을때 데이터베이스 값이 나오도록 값을 넣어줌 -->
 										<td class="truncate text-align-left"><a href="detail?id=${n.id}">${n.title}[20]</a></td>

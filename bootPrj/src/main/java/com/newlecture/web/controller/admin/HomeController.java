@@ -25,7 +25,7 @@ public class HomeController {
 	}
 
 	
-	@PostMapping("upload")
+	@PostMapping("upload") //파일 업로더 컨트롤러 부분
 	public String upload(MultipartFile[] files, HttpServletRequest request) {
 		
 		for(MultipartFile file : files) {

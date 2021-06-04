@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<header id="header">
+		<header id="header">
             <div class="float-content">
                 <h1 class="logo"><img src="/images/logo.png" alt="뉴렉처 온라인"></h1>
                 <section>
@@ -33,9 +33,10 @@
                             <c:if test="${empty sessionScope.uid}"> <!-- 값이넘어오면 로그인 -->
                             <li><a href="/member/login">로그인</a></li>
                             </c:if>
-                            <c:if test="${not empty sessionScope.uid}">
+                            <c:if test="${not empty sessionScope.uid}">               
                             <li><a href="/member/login">로그아웃</a></li> <!-- 연결된 페이지는 무조건 절대경로로 해야한다. -->
                             </c:if>
+                            <li>data:${data}</li>
                             <li><a href="">회원가입</a></li>
                         </ul>
                     </nav>
