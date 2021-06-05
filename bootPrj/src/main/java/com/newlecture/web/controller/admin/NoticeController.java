@@ -30,11 +30,11 @@ public class NoticeController {
 	//@ResponseBody //리턴값을 사용자한테 보여주고 싶을때 그냥 반환만 받을 수 있게
 	public String list(Model model) {	
 		
-		List<Notice> list = new ArrayList<>();
+		List<Notice> list = new ArrayList<>(); //엔티티 Notice를 가변 배열로
 		Notice notice = null;
 		
-		notice = new Notice();
-		notice.setId(1);
+		notice = new Notice(); //생성자
+		notice.setId(1); //set(값을지정해주자)
 		notice.setTitle("클릭해주세요");
 		notice.setWriterId("newlec");
 		list.add(notice);
@@ -45,7 +45,7 @@ public class NoticeController {
 		notice.setWriterId("newlec");
 		list.add(notice);
 		
-		model.addAttribute("listt",list);
+		model.addAttribute("listt",list); //왼쪽이 ${listt}로 쓰일
 		model.addAttribute("title", "test hahaha");
 		model.addAttribute("data", "");
 		
@@ -66,27 +66,29 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("detail") //tiles와 연결하는 기본적인 양식,틀
-	public String detail(Model model) {	
+	public String detail(Model model) {	//1. 파라미터방식으로 String 형태로 리턴
 		
 		Notice notice = new Notice();
-		notice.setId(1);
-		notice.setTitle("클릭해주세요");
+		notice.setId(3);
+		notice.setTitle("클릭해주세요3");
 		notice.setWriterId("newlec");
 		
-		model.addAttribute("notice", notice);
+		model.addAttribute("notice", notice); //2. 값을 넣을때는 addAttribute 사용
 		model.addAttribute("title", notice.getTitle());
 		
-		return "admin.notice.list";	
+		return "admin.notice.detail";	
 		
 	}
 	
 	@GetMapping("reg")
-	public ModelAndView reg() {	
+	public ModelAndView reg() {	// ModelAndView
 		
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView(); //ModelAndView 객체 생성
+		//ex) mv.addObject("notice"notice); //값을 넣을때는 addObject
+		
 		mv.setViewName("admin.notice.reg");
 		
-		return mv;	
+		return mv;	//객체 형태로 리턴
 		
 	}
 	
