@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <%-- <c:set var="title" value="${empty title?}"></c:set> --%>
-    <%-- <title>${title}</title> <!-- title이름과.... --> --%>
+    <title>${title}</title> <!-- title이름과.... -->
     <link href="../../css/style.css" type="text/css" rel="stylesheet">
     
     <c:set var="js"><tiles:getAsString name="js"/></c:set>   <!-- js이름을...페이지마다...-->

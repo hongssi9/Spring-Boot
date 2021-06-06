@@ -46,8 +46,8 @@ public class NoticeController {
 		list.add(notice);
 		
 		model.addAttribute("listt",list); //왼쪽이 ${listt}로 쓰일
-		model.addAttribute("title", "test hahaha");
-		model.addAttribute("data", "");
+//		model.addAttribute("title", "test hahaha");
+//		model.addAttribute("data", "");
 		
 		return "admin.notice.list";
 		
