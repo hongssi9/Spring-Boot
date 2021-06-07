@@ -7,6 +7,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -22,34 +23,42 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.service.NoticeService;
 
 @Controller("adminNoticeController")
 @RequestMapping("/admin/notice/")
+
 public class NoticeController {	
+	@Autowired
+	private NoticeService service;
 	@RequestMapping("list")
 	//@ResponseBody //리턴값을 사용자한테 보여주고 싶을때 그냥 반환만 받을 수 있게
 	public String list(Model model) {	
 		
-		List<Notice> list = new ArrayList<>(); //엔티티 Notice를 가변 배열로
-		Notice notice = null;
 		
-		notice = new Notice(); //생성자
-		notice.setId(1); //set(값을지정해주자)
-		notice.setTitle("클릭해주세요");
-		notice.setWriterId("newlec");
-		list.add(notice);
 		
-		notice = new Notice();
-		notice.setId(2);
-		notice.setTitle("클릭해주세요");
-		notice.setWriterId("newlec");
-		list.add(notice);
+		List<Notice> list = service.getList(); //엔티티 Notice를 가변 배열로
+		model.addAttribute("list",list);
 		
-		model.addAttribute("listt",list); //왼쪽이 ${listt}로 쓰일
+		return "admin.notice.list";
+		
+//		notice = new Notice(); //생성자
+//		notice.setId(1); //set(값을지정해주자)
+//		notice.setTitle("클릭해주세요");
+//		notice.setWriterId("newlec");
+//		list.add(notice);
+//		
+//		notice = new Notice();
+//		notice.setId(2);
+//		notice.setTitle("클릭해주세요");
+//		notice.setWriterId("newlec");
+//		list.add(notice);
+		
+//		model.addAttribute("listt",list); 왼쪽이 ${listt}로 쓰일
 //		model.addAttribute("title", "test hahaha");
 //		model.addAttribute("data", "");
 		
-		return "admin.notice.list";
+//		return "admin.notice.list";
 		
 		
 		//-------------옜날방법-------------------------
