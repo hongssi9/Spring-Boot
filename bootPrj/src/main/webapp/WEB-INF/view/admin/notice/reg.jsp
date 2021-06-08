@@ -15,7 +15,7 @@
                         </section>
 
                   
-                  <form class="form" action="reg" method="post" enctype="multipart/form-data">
+                  <form class="form" action="reg" method="post">
                            <table border="1">                        
                               <tr>
                                  <th>제목</th>

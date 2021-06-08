@@ -27,11 +27,20 @@ public class NoticeServiceimp implements NoticeService {
 		
 		return list;
 	}
+	
+
+	@Override
+	public List<Notice> getList(int page, String field, String query) {
+		
+		List<Notice> list = dao.getList(page, field, query);
+		
+		return list;
+	}
 
 	@Override
 	public int insert(Notice notice) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.insert(notice);
 	}
 
 	@Override
@@ -45,5 +54,44 @@ public class NoticeServiceimp implements NoticeService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
+	@Override
+	public Notice get(int id) {
+		// TODO Auto-generated method stub
+		return dao.get(id);
+	}
+
+
+
+	@Override
+	public int delete(int id) {
+
+		return dao.delete(id);
+	}
+
+
+	@Override
+	public List<Notice> getList(int page) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public int getCount(String field, String query) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int update(Notice notice) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
 
 }

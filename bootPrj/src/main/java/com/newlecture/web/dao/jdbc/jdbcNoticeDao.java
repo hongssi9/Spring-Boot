@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.newlecture.web.dao.NoticeDao;
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeView;
 
 public class jdbcNoticeDao implements NoticeDao{
 
@@ -64,21 +65,33 @@ public class jdbcNoticeDao implements NoticeDao{
 	}
 
 	@Override
-	public int inser(Notice notice) {
+	public int insert(Notice notice) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
-	public int update(Notice notice) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int delete(int id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int update(Notice notice) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int delete(int id) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int getCount(String field, String query) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public List<NoticeView> getViewList(int page, String field, String query) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }
