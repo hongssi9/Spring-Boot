@@ -15,8 +15,8 @@ public interface NoticeDao { //클래스 안만들어도되고 데이터 연고�
 	Notice get(int id);//하나만 가져올때	
 	//@Select("select * from Notice") 마이바티스는 오버로드를 지원하지않는다.(하나만 구현해야함)
 	List<Notice> getList();//어러개를달라.. 필터링, 정렬, 페이징, 집계	
-	List<Notice> getList(int page);
-	List<Notice> getList(int page, String field, String query);
+	List<Notice> getList(int offset, int size);
+	List<Notice> getList(int offset,int size, String field, String query);
 	
 	int getCount(String field, String query);
 

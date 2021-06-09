@@ -4,33 +4,44 @@ import java.util.Date;
 
 public class Notice {
 	//ID, TITLE, WRITER_ID, CONTENT, REGDATE, HIT, FILES
-	private int id;
+	private Integer id;
 	private String title;
 	private String writerId;
 	private String content;
 	private Date regDate;
-	private int hit;
+	private Integer hit;
+	private Boolean pub;
 	private String files;
 	
 	public Notice() {
 		
 	}
 
-	public Notice(int id, String title, String writerId, String content, Date regDate, int hit, String files) {		
-		this.id = id;
-		this.title = title;
-		this.writerId = writerId;
-		this.content = content;
-		this.regDate = regDate;
-		this.hit = hit;
-		this.files = files;
+//	public Notice(int id, String title, String writerId, String content, Date regDate, int hit, String files) {		
+//		this.id = id;
+//		this.title = title;
+//		this.writerId = writerId;
+//		this.content = content;
+//		this.regDate = regDate;
+//		this.hit = hit;
+//		this.files = files;
+//	}
+
+	
+
+	
+
+	@Override
+	public String toString() {
+		return "{\"id\":" + id + ", \"title\":\"" + title + "\", \"writerId\":\"" + writerId + "\", \"content\":\"" + content
+				+ "\", \"regDate\":\"" + regDate + "\", \"hit\":" + hit + ", \"files\":\"" + files + "\"}";
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -66,12 +77,20 @@ public class Notice {
 		this.regDate = regDate;
 	}
 
-	public int getHit() {
+	public Integer getHit() {
 		return hit;
 	}
 
-	public void setHit(int hit) {
+	public void setHit(Integer hit) {
 		this.hit = hit;
+	}
+
+	public Boolean getPub() {
+		return pub;
+	}
+
+	public void setPub(Boolean pub) {
+		this.pub = pub;
 	}
 
 	public String getFiles() {
@@ -82,9 +101,4 @@ public class Notice {
 		this.files = files;
 	}
 
-	@Override
-	public String toString() {
-		return "{\"id\":" + id + ", \"title\":\"" + title + "\", \"writerId\":\"" + writerId + "\", \"content\":\"" + content
-				+ "\", \"regDate\":\"" + regDate + "\", \"hit\":" + hit + ", \"files\":\"" + files + "\"}";
-	}
 }

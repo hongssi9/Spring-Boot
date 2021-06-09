@@ -4,14 +4,27 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.newlecture.web.dao.NoticeDao">
-    
+	
+	<!-- 데이터를 가져올때 데이터 명을 정해주고 가져오게 해준다.
+ 	<resultMap type="com.newlecture.web.entity.Notice" id="noticeMap">
+        <result column="writer_Id" property="writerId"/>
+        <result column="reg_date" property="regDate"/>
+    </resultMap>
+     -->
     
     <select id="get" resultType="com.newlecture.web.entity.Notice">
         select * from Notice where id=#{id}
     </select>
     <select id="getList" resultType="com.newlecture.web.entity.Notice">
-        select * from Notice where ${field} like '%${query}%'
+        select * from Notice 
+        <where>
+        <if test="field != null">
+        	${field} like '%${query}%'
+        </if>
+        	and hit=0
+        </where>
         order by regdate desc
+        LIMIT #{size} offset #{offset}
     </select>
     
     <select id="getViewList" resultType="com.newlecture.web.entity.NoticeView">
@@ -29,21 +42,22 @@
     	values(#{title},#{content},#{writerId})
     </insert>
     
-    <!-- <delete id="delete" parameterType="int">
+    <delete id="delete" parameterType="int">
     	delete from Notice where id=#{id}
     </delete>
     
     <update id="update" parameterType="com.newlecture.web.entity.Notice">
     	update Notice
-    	SET
-		title = #{title},
-		writerId = #{writerId},
-		content = #{content},
-		hit = #{hit: 0},
-		files = #{files},
-		pub = #{pub}
-    	where id=#{id}
-    </update> -->
+    <set>
+		<if test= "title != null">title = #{title},</if>
+		<if test = "writerId != null">writerId = #{writerId},</if>
+		<if test ="content != null">content = #{content},</if>
+		<if test= "hit != null">hit = #{hit},</if>
+		<if test= "files != null">files = #{files},</if>
+		<if test= "pub != null">pub = #{pub}</if>
+    </set>
+    where id=#{id}
+    </update>
     
     
     

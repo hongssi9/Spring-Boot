@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.newlecture.web.dao.NoticeDao;
+import com.newlecture.web.entity.Comment;
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.entity.NoticeView;
 
@@ -24,6 +25,7 @@ public class MyBatisNoticeDao implements NoticeDao {
 	}
 
 
+
 	@Override
 	public Notice get(int id) {
 
@@ -33,19 +35,19 @@ public class MyBatisNoticeDao implements NoticeDao {
 	@Override
 	public List<Notice> getList() {
 		// TODO Auto-generated method stub
-		return getList(1,"title","");
+		return getList(0, 10, "title","");
 	}
 
 	@Override
-	public List<Notice> getList(int page) {
-
-		return getList(page,"title","");
-	}
-
-	@Override
-	public List<Notice> getList(int page, String field, String query) {
+	public List<Notice> getList(int offset, int size) {
 		
-		return mapper.getList(page, field, query);
+		return getList(offset, size, "title","");
+	}
+
+	@Override
+	public List<Notice> getList(int offset, int size, String field, String query) {
+		
+		return mapper.getList(offset, size, field, query);
 	}
 
 	@Override
@@ -54,29 +56,29 @@ public class MyBatisNoticeDao implements NoticeDao {
 		return mapper.insert(notice);
 	}
 
-//	@Override
-//	public int update(Notice notice) {
-//		
-//		return mapper.update(notice);
-//	}
-//
-//	@Override
-//	public int delete(int id) {
-//		
-//		
-//		return mapper.delete(id);
-//	}
-//	
-//	@Override
-//	public int getCount(String field, String query) {
-//		
-//		return mapper.getCount(field, query);
-//	}
-//
-//	@Override
-//	public List<NoticeView> getViewList(int page, String field, String query) {
-//		// TODO Auto-generated method stub
-//		return mapper.getViewList(page, field, query);
-//	}
+	@Override
+	public int update(Notice notice) {
+		
+		return mapper.update(notice);
+	}
+
+	@Override
+	public int delete(int id) {
+		
+		
+		return mapper.delete(id);
+	}
+	
+	@Override
+	public int getCount(String field, String query) {
+		
+		return mapper.getCount(field, query);
+	}
+
+	@Override
+	public List<NoticeView> getViewList(int page, String field, String query) {
+		// TODO Auto-generated method stub
+		return mapper.getViewList(page, field, query);
+	}
 
 }

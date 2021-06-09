@@ -1,0 +1,47 @@
+//<?xml version="1.0" encoding="UTF-8"?>
+//<!DOCTYPE mapper
+//    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+//    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+//
+//<mapper namespace="com.newlecture.web.dao.CommentDao">
+//        
+//    <select id="get" resultType="com.newlecture.web.entity.Comment">
+//        select * from Comment where id=#{id}
+//    </select>
+//    <select id="getList" resultType="com.newlecture.web.entity.Comment">
+//        select * from Comment where ${field} like '%${query}%'
+//        order by regdate desc
+//    </select>
+//    
+//    <select id="getViewList" resultType="com.newlecture.web.entity.NoticeView">
+//        select * from Comment where ${param2} like '%${param3}%'
+//        order by regdate desc
+//    </select>
+//    
+//    <select id="getCount" resultType="int">
+//    	select count(id) from Comment
+//    	where ${param1} like ='%${param2}%'
+//    </select>
+//    
+//    <insert id="insert" parameterType="com.newlecture.web.entity.Comment">
+//    	insert into Comment(title, content, writerId)
+//    	values(#{title},#{content},#{writerId})
+//    </insert>
+//    
+//    <delete id="delete" parameterType="int">
+//    	delete from Comment where id=#{id}
+//    </delete>
+//    
+//    <update id="update" parameterType="com.newlecture.web.entity.Comment">
+//    	update Comment
+//    	SET
+//		title = #{title},
+//		writerId = #{writerId},
+//		content = #{content},
+//		hit = #{hit: 0},
+//		files = #{files},
+//		pub = #{pub}
+//    	where id=#{id}
+//    </update> 
+//    
+//</mapper>

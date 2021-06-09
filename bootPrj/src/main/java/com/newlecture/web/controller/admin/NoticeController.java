@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.newlecture.web.dao.NoticeDao;
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.service.NoticeService;
 
@@ -37,7 +38,7 @@ public class NoticeController {
 	//@ResponseBody //리턴값을 사용자한테 보여주고 싶을때 그냥 반환만 받을 수 있게	
 	public String list(Model model) {
 		
-		List<Notice> list = service.getList(1, "title", "");
+		List<Notice> list = service.getList(1, null, null);
 		model.addAttribute("list",list);
 		
 		return "admin.notice.list";
@@ -69,12 +70,51 @@ public class NoticeController {
 		
 	}
 	
+	@GetMapping("reg") 
+	public ModelAndView reg(
+			@RequestParam(name = "f", defaultValue = "title") String field,
+			@RequestParam(defaultValue = "0") Integer x, 
+			@RequestParam(defaultValue = "0") Integer y, 
+			HttpServletResponse response ,
+			@CookieValue(name = "test", defaultValue = "hi") String test,
+			MultipartFile file
+			) {
+		
+		if(test.equals("hi")) {
+			Cookie cookie = new Cookie("test", "hello");
+			cookie.setMaxAge(10*24*60*60);
+			cookie.setPath("/");
+			response.addCookie(cookie);
+		}
 
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin.notice.reg");
+		
+		return mv;
+	}
 	
-//	@PostMapping("edit")
-//	public String edit() {	
-//		return "admin notice edit POST";
-//	}
+	@Autowired
+	private NoticeDao noticeDao;
+
+	@GetMapping("edit")
+	public String edit(int id, Model model) {	
+		
+		Notice notice = noticeDao.get(id);
+		model.addAttribute("notice",notice);
+		
+		return "admin.notice.edit";
+		
+	}
+	
+	@PostMapping("edit")
+	public String edit(Notice notice) {
+		
+		noticeDao.update(notice);
+		
+		return "redirect:detail?id="+notice.getId();
+	}
+	
+
 //	
 //	@RequestMapping("del")
 //	public String del(int id) {	
