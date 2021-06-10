@@ -69,16 +69,24 @@ public class MyBatisNoticeDao implements NoticeDao {
 		return mapper.delete(id);
 	}
 	
-	@Override
-	public int getCount(String field, String query) {
-		
-		return mapper.getCount(field, query);
-	}
+//	@Override
+//	public int getCount(String field, String query) {
+//		
+//		return mapper.getCount(field, query);
+//	}
 
 	@Override
 	public List<NoticeView> getViewList(int page, String field, String query) {
 		// TODO Auto-generated method stub
 		return mapper.getViewList(page, field, query);
+	}
+
+
+
+	@Override
+	public List<Notice> getListIn(int[] ids) {
+		// TODO Auto-generated method stub
+		return mapper.getListIn(ids);
 	}
 
 }

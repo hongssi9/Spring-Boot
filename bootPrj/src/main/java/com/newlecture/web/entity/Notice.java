@@ -1,6 +1,7 @@
 package com.newlecture.web.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Notice {
 	//ID, TITLE, WRITER_ID, CONTENT, REGDATE, HIT, FILES
@@ -12,6 +13,8 @@ public class Notice {
 	private Integer hit;
 	private Boolean pub;
 	private String files;
+	
+	private List<Comment> comments; 
 	
 	public Notice() {
 		
@@ -100,5 +103,15 @@ public class Notice {
 	public void setFiles(String files) {
 		this.files = files;
 	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+	
+	
 
 }

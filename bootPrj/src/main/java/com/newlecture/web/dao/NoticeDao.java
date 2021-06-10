@@ -17,8 +17,10 @@ public interface NoticeDao { //클래스 안만들어도되고 데이터 연고�
 	List<Notice> getList();//어러개를달라.. 필터링, 정렬, 페이징, 집계	
 	List<Notice> getList(int offset, int size);
 	List<Notice> getList(int offset,int size, String field, String query);
+	List<Notice> getListIn(int[] ids);
 	
-	int getCount(String field, String query);
+	
+	//int getCount(String field, String query);
 
 	int insert(Notice notice);
 	int update(Notice notice);

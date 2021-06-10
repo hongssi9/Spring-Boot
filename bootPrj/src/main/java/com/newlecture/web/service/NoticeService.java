@@ -15,10 +15,10 @@ public interface NoticeService {
 	
 	//관리자
 	int insert(Notice notice);
-	//int update(Notice notice);
-	int hitUp(int id);
-	int likeUp(int id);
+	int hitUp(int id); //자세한 페이지를 조회 -> 조회수 Up
+	int likeToggle(int id); //좋아요를 클릭 -> 좋아요를 토글
 	Notice get(int id);
 	int delete(int id);
 	
+	int update(Notice notice);
 }
