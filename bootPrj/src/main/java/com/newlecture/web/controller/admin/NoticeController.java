@@ -32,14 +32,14 @@ import com.newlecture.web.service.NoticeService;
 public class NoticeController {	
 	
 	@Autowired
-	private NoticeService service;
+	private NoticeService service; //컨테이너에 저장된 서비스 객체를 꺼내서 전역변수로 만들었다.
 	
 	@RequestMapping("list")
 	//@ResponseBody //리턴값을 사용자한테 보여주고 싶을때 그냥 반환만 받을 수 있게	
 	public String list(Model model) {
 		
-		List<Notice> list = service.getList(1, null, null);
-		model.addAttribute("list",list);
+		List<Notice> list = service.getList(1, null, null); //서비스 클래스에있는 getList(인자3개)값을 list에 넣자
+		model.addAttribute("list",list);//"list"라는 키값에 위에서 받아온 list데이터를 넣고 model로 전달된다.
 		
 		return "admin.notice.list";
 	}
@@ -61,7 +61,7 @@ public class NoticeController {
 		Notice notice = new Notice();
 		notice.setTitle(title);
 		notice.setContent(content);
-		notice.setWriterId("newlec");
+		notice.setWriterId("testttt");
 		
 		service.insert(notice);
 		
@@ -118,14 +118,7 @@ public class NoticeController {
 		return "redirect:detail?id="+notice.getId();
 	}
 	
+	
 
-//	
-//	@RequestMapping("del")
-//	public String del(int id) {	
-//		
-//		service.delete(id);
-//		
-//		return "redirect:list";
-//	}
 	
 }

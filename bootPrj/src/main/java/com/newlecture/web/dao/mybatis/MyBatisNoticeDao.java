@@ -52,8 +52,15 @@ public class MyBatisNoticeDao implements NoticeDao {
 
 	@Override
 	public int insert(Notice notice) {
-	
-		return mapper.insert(notice);
+		int result = 0;
+		
+		notice.setHit(200);
+		result = mapper.update(notice);
+		
+		notice.setWriterId("asdasdas");
+		result = mapper.insert(notice);
+		
+		return result;
 	}
 
 	@Override
