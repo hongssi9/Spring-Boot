@@ -18,11 +18,11 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 //새로생성하는건 이렇게
 
 // Bean Container(콩자루, 콩보따리) : IoC Container
-@Configuration // 직접 Bean을 지정하기위해 자바 클래스에서 Configuration를 사용했다.
+//@Configuration // 직접 Bean을 지정하기위해 자바 클래스에서 Configuration를 사용했다.
 public class TilesConfig {
 			
 			//함수에 @Bean작성시 리턴값이 IOC에 자동으로 Bean으로 등록된다.
-	@Bean //spring에서 titles 기능을 제공해주는게 아니라 따로 객체를 만들어서 tiles.xml 사용할수있게 해줘여한다.
+	@Bean //spring에서 3ewwwwwwwwwwwwwwwwwwtitles 기능을 제공해주는게 아니라 따로 객체를 만들어서 tiles.xml 사용할수있게 해줘여한다.
 	public TilesConfigurer tilesConfigurer() { //tilesConfigurer 아무렇게 만들어도 되지만..디폴트 이름이 앞에는 소문자 나머지는 같게해서
 		
 		TilesConfigurer config = new TilesConfigurer();

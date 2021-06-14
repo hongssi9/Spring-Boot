@@ -1,6 +1,7 @@
 package com.newlecture.web.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -9,21 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
 	@RequestMapping("/index")
-//	@ResponseBody
-	public String index() {
+	public String index(Model model) {
+		
+		model.addAttribute("title", "우와아아아ㅏ<u>안녕하세요~~~</u>");
 
 	
 		
-		return "/WEB-INF/view/index.jsp";
+		return "index";
 	}
 
-//	@RequestMapping("/index")
-//		public String list() {	
-//			return "list";
-//	}
-//
-//	@RequestMapping("/index")
-//		public String list() {	
-//			return "list";
-//	}
+
 }
