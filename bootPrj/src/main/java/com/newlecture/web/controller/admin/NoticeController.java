@@ -36,10 +36,17 @@ public class NoticeController {
 	
 	@RequestMapping("list") //GetMapping과 차이는 없다.
 	//@ResponseBody //리턴값을 사용자한테 보여주고 싶을때 그냥 반환만 받을 수 있게	
-	public String list(Model model) {
+	public String list(
+			@RequestParam(name = "p", defaultValue = "1") Integer page, //html에서 파라미터를 전달받는곳 @request
+			@RequestParam(name = "f", defaultValue = "title") String field,
+			@RequestParam(name = "q", defaultValue = "") String query,
+			Model model) {
 		
-		List<Notice> list = service.getList(1, null, null); //서비스 클래스에있는 getList(인자3개)값을 list에 넣자
+		List<Notice> list = service.getList(page, field, query); //서비스 클래스에있는 getList(인자3개)값을 list에 넣자
+		int count = service.getCount(field, query); //어떤 컬럼에서 어떤 데이터를
+		
 		model.addAttribute("list",list);//"list"라는 키값에 위에서 받아온 list데이터를 넣고 model로 전달된다.
+		model.addAttribute("count",count);
 		//test
 		return "admin/notice/list"; //->/admin/notice/list.html
 	}
@@ -51,7 +58,7 @@ public class NoticeController {
 		Notice notice = service.get(id); //서비스에 get이라는걸 구현		
 		model.addAttribute("notice",notice);
 		
-		return "admin.notice.detail";	
+		return "admin/notice/detail";	
 		
 	}
 	

@@ -52,17 +52,17 @@ public class jdbcNoticeDao implements NoticeDao{
 		return null;
 	}
 
-	@Override
-	public List<Notice> getList(int padge) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Notice> getList(int padge, String field, String query) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<Notice> getList(int padge) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public List<Notice> getList(int padge, String field, String query) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int insert(Notice notice) {
@@ -82,16 +82,47 @@ public class jdbcNoticeDao implements NoticeDao{
 //		return 0;
 //	}
 //
-//	@Override
-//	public int getCount(String field, String query) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
+	@Override
+	public int getCount(String field, String query) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 //
 //	@Override
 //	public List<NoticeView> getViewList(int page, String field, String query) {
 //		// TODO Auto-generated method stub
 //		return null;
 //	}
+
+	@Override
+	public List<Notice> getList(int offset, int size) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Notice> getList(int offset, int size, String field, String query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Notice> getListIn(int[] ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int update(Notice notice) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }

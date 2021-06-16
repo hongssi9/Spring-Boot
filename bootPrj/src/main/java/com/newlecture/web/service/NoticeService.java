@@ -21,4 +21,5 @@ public interface NoticeService {
 	int delete(int id);
 	
 	int update(Notice notice);
+	int getCount(String field, String query);
 }

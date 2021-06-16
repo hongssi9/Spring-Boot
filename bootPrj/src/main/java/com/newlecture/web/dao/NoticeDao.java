@@ -20,12 +20,12 @@ public interface NoticeDao { //클래스 안만들어도되고 데이터 연고�
 	List<Notice> getListIn(int[] ids);
 	
 	
-	//int getCount(String field, String query);
+	int getCount(String field, String query);
 
 	int insert(Notice notice);
 	int update(Notice notice);
 	int delete(int id);
 	
-	List<NoticeView> getViewList(int page, String field, String query);
+	//List<NoticeView> getViewList(int page, String field, String query);
 	
 }

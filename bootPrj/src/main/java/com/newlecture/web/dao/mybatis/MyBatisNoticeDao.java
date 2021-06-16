@@ -82,11 +82,11 @@ public class MyBatisNoticeDao implements NoticeDao {
 //		return mapper.getCount(field, query);
 //	}
 
-	@Override
-	public List<NoticeView> getViewList(int page, String field, String query) {
-		// TODO Auto-generated method stub
-		return mapper.getViewList(page, field, query);
-	}
+//	@Override
+//	public List<NoticeView> getViewList(int page, String field, String query) {
+//		// TODO Auto-generated method stub
+//		return mapper.getViewList(page, field, query);
+//	}
 
 
 
@@ -94,6 +94,14 @@ public class MyBatisNoticeDao implements NoticeDao {
 	public List<Notice> getListIn(int[] ids) {
 		// TODO Auto-generated method stub
 		return mapper.getListIn(ids);
+	}
+
+
+
+	@Override
+	public int getCount(String field, String query) {
+		// TODO Auto-generated method stub
+		return mapper.getCount(field, query);
 	}
 
 }
