@@ -1,7 +1,9 @@
-package com.newlecture.web.controller.admin;
+package com.newlecture.web.api.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +28,8 @@ import com.newlecture.web.dao.NoticeDao;
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.service.NoticeService;
 
-@Controller("adminNoticeController")
-@RequestMapping("/admin/notice/") //RequestMapping은 함수나 클래스에 사용 가능하지만, GetMapping은 함수에만...기능은 같다.
+@RestController("adminNoticeControllerapi")
+@RequestMapping("/api/notice/") //RequestMapping은 함수나 클래스에 사용 가능하지만, GetMapping은 함수에만...기능은 같다.
 public class NoticeController {	
 	
 	@Autowired //IOC컨테이너에 보관되어있는 객체를 자동으로 생성하는 역할
@@ -35,19 +37,21 @@ public class NoticeController {
 	
 	@RequestMapping("list") //GetMapping과 차이는 없다.
 	//@ResponseBody //리턴값을 사용자한테 보여주고 싶을때 그냥 반환만 받을 수 있게	
-	public String list(
+	public Map<String, Object> list(
 			@RequestParam(name = "p", defaultValue = "1") Integer page, //html에서 파라미터를 전달받는곳 @request
 			@RequestParam(name = "f", defaultValue = "title") String field,
 			@RequestParam(name = "q", defaultValue = "") String query,
 			Model model) {
 		
+		Map<String, Object> map = new HashMap<>();
+		
 		List<Notice> list = service.getList(page, field, query); //서비스 클래스에있는 getList(인자3개)값을 list에 넣자
 		int count = service.getCount(field, query); //어떤 컬럼에서 어떤 데이터를
 		
-		model.addAttribute("list",list);//"list"라는 키값에 위에서 받아온 list데이터를 넣고 model로 전달된다.
-		model.addAttribute("count",count);
-		//test
-		return "admin/notice/list-react"; //->/admin/notice/list.html
+		map.put("list", list);
+		map.put("count", count);
+		
+		return map;
 	}
 	
 	
