@@ -47,7 +47,8 @@ public class NoticeController {
 		model.addAttribute("list",list);//"list"라는 키값에 위에서 받아온 list데이터를 넣고 model로 전달된다.
 		model.addAttribute("count",count);
 		//test
-		return "admin/notice/list-react"; //->/admin/notice/list.html
+		//return "admin/notice/list-react"; //->/admin/notice/list.html
+		return "admin/notice/list";
 	}
 	
 	
