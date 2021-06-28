@@ -19,8 +19,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/admin/notice/list").hasAnyRole("ADMIN") //인증이 필요한 링크 정하기
-				.antMatchers("/admin/notice/detail").hasAnyRole("ADMIN")
+				//.antMatchers("/admin/notice/list").hasAnyRole("ADMIN") //인증이 필요한 링크 정하기
+				.antMatchers("/**").permitAll()
+				.antMatchers("/admin/**").hasAnyRole("ADMIN")
 				.and()
 			.formLogin()
 				.loginPage("/member/login")

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +36,7 @@ public class NoticeController {
 	@Autowired //IOC컨테이너에 보관되어있는 객체를 자동으로 생성하는 역할
 	private NoticeService service; //컨테이너에 저장된 서비스 객체를 꺼내서 전역변수로 만들었다.
 	
+	@CrossOrigin(origins = "http://localhost:3000") //3000번으로 오는건 다 허용해준다.
 	@RequestMapping("list") //GetMapping과 차이는 없다.
 	//@ResponseBody //리턴값을 사용자한테 보여주고 싶을때 그냥 반환만 받을 수 있게	
 	public Map<String, Object> list(
