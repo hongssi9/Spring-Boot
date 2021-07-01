@@ -30,8 +30,8 @@ import com.newlecture.web.service.NoticeService;
 @RequestMapping("/admin/notice/") //RequestMapping은 함수나 클래스에 사용 가능하지만, GetMapping은 함수에만...기능은 같다.
 public class NoticeController {	
 	
-	@Autowired //IOC컨테이너에 보관되어있는 객체를 자동으로 생성하는 역할
-	private NoticeService service; //컨테이너에 저장된 서비스 객체를 꺼내서 전역변수로 만들었다.
+	//@Autowired //IOC컨테이너에 보관되어있는 객체를 자동으로 생성하는 역할
+	//private NoticeService service; //컨테이너에 저장된 서비스 객체를 꺼내서 전역변수로 만들었다.
 	
 	@RequestMapping("list") //GetMapping과 차이는 없다.
 	//@ResponseBody //리턴값을 사용자한테 보여주고 싶을때 그냥 반환만 받을 수 있게	
